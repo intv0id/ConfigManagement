@@ -1,0 +1,15 @@
+{
+    "ssh":{
+        "base_folder": "~",
+        "files": [
+            ".ssh/"
+        ]
+    },
+
+    "bash_pref":{
+        "base_folder": "~",
+        "files": [
+            ".bashrc .bash_aliases .bash_vars .profile"
+        ]
+    }
+}
