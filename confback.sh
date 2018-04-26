@@ -72,6 +72,23 @@ function print_config_help {
     ";
 }
 
+function load_config {
+    conf_chunk_names=$(jq -r "keys | .[]" $CFMNGT_CONFIG);
+    for conf_chunk_name in $conf_chunk_names; 
+    do 
+        echo $conf_chunk_name;
+        BF=$(jq -r ".$conf_chunk_name.base_folder" $CFMNGT_CONFIG);
+        FILES=$(jq -r ".$conf_chunk_name.files | .[]" $CFMNGT_CONFIG);
+        echo $BF; 
+        echo $FILES;
+    done
+    #return $config;
+}
+
+function check_config {
+    echo "TODO";
+}
+
 function invalid_syntax {
     echo "INVALID SYNTAX";
     print_help;
@@ -86,11 +103,11 @@ function parse_help {
 }
 
 function parse_save {
-
+    echo "TODO";
 }
 
 function parse_restore {
-
+    echo "TODO";
 }
 
 function main {
@@ -119,6 +136,7 @@ function main {
     fi;
 }
 
-main $@
+main $@;
+load_config;
 
 
